@@ -1,0 +1,360 @@
+=== ShimChecker Test Results ===
+Timestamp: 2025-09-19 15:36:08
+==================================================
+
+Function: length_test
+Description: Get length of collection
+------------------------------
+Input: [1, 2, 3]
+Julia Output: {"status":"success","result":3}
+Rust Output: {"result":3,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+Input: []
+Julia Output: {"status":"success","result":0}
+Rust Output: {"result":0,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+Input: hello
+Julia Output: {"status":"success","result":5}
+Rust Output: {"result":5,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+Input: 
+Julia Output: {"status":"success","result":0}
+Rust Output: {"result":0,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+
+Function: isempty_test
+Description: Check if collection is empty
+------------------------------
+Input: [1, 2, 3]
+Julia Output: {"status":"success","result":false}
+Rust Output: {"result":false,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+Input: []
+Julia Output: {"status":"success","result":true}
+Rust Output: {"result":true,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+Input: hello
+Julia Output: {"status":"success","result":false}
+Rust Output: {"result":false,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+Input: 
+Julia Output: {"status":"success","result":true}
+Rust Output: {"result":true,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+
+Function: push_test
+Description: Add element to end of array
+------------------------------
+Input: {'array': [1, 2], 'element': 3}
+Julia Output: {"status":"success","result":[1,2,3]}
+Rust Output: {"result":[1,2,3],"status":"success"}
+Status: ✅ MATCH
+
+Input: {'array': [], 'element': 'first'}
+Julia Output: {"status":"success","result":["first"]}
+Rust Output: {"result":["first"],"status":"success"}
+Status: ✅ MATCH
+
+Input: {'array': ['a', 'b'], 'element': 'c'}
+Julia Output: {"status":"success","result":["a","b","c"]}
+Rust Output: {"result":["a","b","c"],"status":"success"}
+Status: ✅ MATCH
+
+
+Function: pop_test
+Description: Remove and return last element
+------------------------------
+Input: [1, 2, 3]
+Julia Output: {"status":"success","result":{"popped":3,"array":[1,2]}}
+Rust Output: {"result":{"array":[1,2],"popped":3},"status":"success"}
+Status: ✅ MATCH
+
+Input: ['single']
+Julia Output: {"status":"success","result":{"popped":"single","array":[]}}
+Rust Output: {"result":{"array":[],"popped":"single"},"status":"success"}
+Status: ✅ MATCH
+
+Input: ['a', 'b', 'c']
+Julia Output: {"status":"success","result":{"popped":"c","array":["a","b"]}}
+Rust Output: {"result":{"array":["a","b"],"popped":"c"},"status":"success"}
+Status: ✅ MATCH
+
+
+Function: reverse_test
+Description: Reverse array elements
+------------------------------
+Input: [1, 2, 3]
+Julia Output: {"status":"success","result":[3,2,1]}
+Rust Output: {"result":[3,2,1],"status":"success"}
+Status: ✅ MATCH
+
+Input: [1]
+Julia Output: {"status":"success","result":[1]}
+Rust Output: {"result":[1],"status":"success"}
+Status: ✅ MATCH
+
+Input: []
+Julia Output: {"status":"success","result":[]}
+Rust Output: {"result":[],"status":"success"}
+Status: ✅ MATCH
+
+Input: ['a', 'b', 'c']
+Julia Output: {"status":"success","result":["c","b","a"]}
+Rust Output: {"result":["c","b","a"],"status":"success"}
+Status: ✅ MATCH
+
+
+Function: sort_test
+Description: Sort array elements
+------------------------------
+Input: [3, 1, 2]
+Julia Output: {"status":"success","result":[1,2,3]}
+Rust Output: {"result":[1,2,3],"status":"success"}
+Status: ✅ MATCH
+
+Input: [1]
+Julia Output: {"status":"success","result":[1]}
+Rust Output: {"result":[1],"status":"success"}
+Status: ✅ MATCH
+
+Input: []
+Julia Output: {"status":"success","result":[]}
+Rust Output: {"result":[],"status":"success"}
+Status: ✅ MATCH
+
+Input: ['c', 'a', 'b']
+Julia Output: {"status":"success","result":["a","b","c"]}
+Rust Output: {"result":["a","b","c"],"status":"success"}
+Status: ✅ MATCH
+
+
+Function: any_test
+Description: Check if any element satisfies condition
+------------------------------
+Input: {'array': [1, 2, 3], 'condition': 'positive'}
+Julia Output: {"status":"success","result":true}
+Rust Output: {"result":true,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+Input: {'array': [-1, -2, -3], 'condition': 'positive'}
+Julia Output: {"status":"success","result":false}
+Rust Output: {"result":false,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+Input: {'array': [0, 1, 2], 'condition': 'zero'}
+Julia Output: {"status":"success","result":true}
+Rust Output: {"result":true,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+
+Function: all_test
+Description: Check if all elements satisfy condition
+------------------------------
+Input: {'array': [1, 2, 3], 'condition': 'positive'}
+Julia Output: {"status":"success","result":true}
+Rust Output: {"result":true,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+Input: {'array': [-1, -2, -3], 'condition': 'positive'}
+Julia Output: {"status":"success","result":false}
+Rust Output: {"result":false,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+Input: {'array': [2, 4, 6], 'condition': 'even'}
+Julia Output: {"status":"success","result":true}
+Rust Output: {"result":true,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+
+Function: count_test
+Description: Count elements satisfying condition
+------------------------------
+Input: {'array': [1, 2, 3, 4], 'condition': 'even'}
+Julia Output: {"status":"success","result":2}
+Rust Output: {"result":2,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+Input: {'array': [1, 3, 5], 'condition': 'even'}
+Julia Output: {"status":"success","result":0}
+Rust Output: {"result":0,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+Input: {'array': [0, 1, 0, 2], 'condition': 'zero'}
+Julia Output: {"status":"success","result":2}
+Rust Output: {"result":2,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+
+Function: sum_test
+Description: Sum all elements
+------------------------------
+Input: [1, 2, 3]
+Julia Output: {"status":"success","result":6}
+Rust Output: {"result":6.0,"status":"success"}
+Status: ✅ MATCH
+Difference: 0.0
+
+Input: [10]
+Julia Output: {"status":"success","result":10}
+Rust Output: {"result":10.0,"status":"success"}
+Status: ✅ MATCH
+Difference: 0.0
+
+Input: []
+Julia Output: {"error":"MethodError(zero, (Any,), 0xffffffffffffffff)","status":"error"}
+Rust Output: {"error":"Cannot sum empty array - no identity element","status":"error"}
+Status: ✅ MATCH
+
+Input: [-1, 1, 0]
+Julia Output: {"status":"success","result":0}
+Rust Output: {"result":0.0,"status":"success"}
+Status: ✅ MATCH
+Difference: 0.0
+
+
+Function: prod_test
+Description: Product of all elements
+------------------------------
+Input: [1, 2, 3]
+Julia Output: {"status":"success","result":6}
+Rust Output: {"result":6.0,"status":"success"}
+Status: ✅ MATCH
+Difference: 0.0
+
+Input: [5]
+Julia Output: {"status":"success","result":5}
+Rust Output: {"result":5.0,"status":"success"}
+Status: ✅ MATCH
+Difference: 0.0
+
+Input: []
+Julia Output: {"error":"MethodError(one, (Any,), 0xffffffffffffffff)","status":"error"}
+Rust Output: {"error":"Cannot compute product of empty array - no identity element","status":"error"}
+Status: ✅ MATCH
+
+Input: [2, 3, 4]
+Julia Output: {"status":"success","result":24}
+Rust Output: {"result":24.0,"status":"success"}
+Status: ✅ MATCH
+Difference: 0.0
+
+
+Function: minimum_test
+Description: Find minimum element
+------------------------------
+Input: [3, 1, 4, 1, 5]
+Julia Output: {"status":"success","result":1}
+Rust Output: {"result":1.0,"status":"success"}
+Status: ✅ MATCH
+Difference: 0.0
+
+Input: [42]
+Julia Output: {"status":"success","result":42}
+Rust Output: {"result":42.0,"status":"success"}
+Status: ✅ MATCH
+Difference: 0.0
+
+Input: [-1, -5, -2]
+Julia Output: {"status":"success","result":-5}
+Rust Output: {"result":-5.0,"status":"success"}
+Status: ✅ MATCH
+Difference: 0.0
+
+
+Function: maximum_test
+Description: Find maximum element
+------------------------------
+Input: [3, 1, 4, 1, 5]
+Julia Output: {"status":"success","result":5}
+Rust Output: {"result":5.0,"status":"success"}
+Status: ✅ MATCH
+Difference: 0.0
+
+Input: [42]
+Julia Output: {"status":"success","result":42}
+Rust Output: {"result":42.0,"status":"success"}
+Status: ✅ MATCH
+Difference: 0.0
+
+Input: [-1, -5, -2]
+Julia Output: {"status":"success","result":-1}
+Rust Output: {"result":-1.0,"status":"success"}
+Status: ✅ MATCH
+Difference: 0.0
+
+
+Function: findfirst_test
+Description: Find first element satisfying condition
+------------------------------
+Input: {'array': [1, 2, 3, 4], 'condition': 'even'}
+Julia Output: {"status":"success","result":2}
+Rust Output: {"result":2,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+Input: {'array': [1, 3, 5], 'condition': 'even'}
+Julia Output: {"status":"success","result":null}
+Rust Output: {"result":null,"status":"success"}
+Status: ✅ MATCH
+
+Input: {'array': [10, 20, 30], 'condition': 'greater_than_15'}
+Julia Output: {"status":"success","result":2}
+Rust Output: {"result":2,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+
+Function: in_test
+Description: Check if element is in collection
+------------------------------
+Input: {'element': 2, 'collection': [1, 2, 3]}
+Julia Output: {"status":"success","result":true}
+Rust Output: {"result":true,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+Input: {'element': 5, 'collection': [1, 2, 3]}
+Julia Output: {"status":"success","result":false}
+Rust Output: {"result":false,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+Input: {'element': 'b', 'collection': ['a', 'b', 'c']}
+Julia Output: {"status":"success","result":true}
+Rust Output: {"result":true,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+
+==================================================
+SUMMARY
+==================================================
+Total Tests: 51
+Passed: 51
+Failed: 0
+Success Rate: 100.0%
