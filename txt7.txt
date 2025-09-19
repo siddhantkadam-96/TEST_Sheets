@@ -1,0 +1,509 @@
+=== ShimChecker Test Results ===
+Timestamp: 2025-09-19 15:04:18
+==================================================
+
+Function: haskey_test
+Description: Check if dictionary has key
+------------------------------
+Input: {'dict': {'a': 1, 'b': 2}, 'key': 'a'}
+Julia Output: {"status":"success","result":true}
+Rust Output: {"result":true,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+Input: {'dict': {'a': 1, 'b': 2}, 'key': 'c'}
+Julia Output: {"status":"success","result":false}
+Rust Output: {"result":false,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+Input: {'dict': {}, 'key': 'x'}
+Julia Output: {"status":"success","result":false}
+Rust Output: {"result":false,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+
+Function: get_test
+Description: Get value from dictionary with default
+------------------------------
+Input: {'dict': {'a': 1, 'b': 2}, 'key': 'a', 'default': 0}
+Julia Output: {"status":"success","result":1}
+Rust Output: {"result":1,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+Input: {'dict': {'a': 1, 'b': 2}, 'key': 'c', 'default': 99}
+Julia Output: {"status":"success","result":99}
+Rust Output: {"result":99,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+
+Function: hash_test
+Description: Calculate hash of value
+------------------------------
+Input: hello
+Julia Output: {"status":"success","result":17533006386712898841}
+Rust Output: {"result":16156531084128653017,"status":"success"}
+Status: ✅ MATCH
+Difference: hash_comparison
+
+Input: world
+Julia Output: {"status":"success","result":10967834098444036894}
+Rust Output: {"result":4616426464749022244,"status":"success"}
+Status: ✅ MATCH
+Difference: hash_comparison
+
+Input: 42
+Julia Output: {"status":"success","result":1098236396662648698}
+Rust Output: {"result":8880661182590738257,"status":"success"}
+Status: ✅ MATCH
+Difference: hash_comparison
+
+Input: True
+Julia Output: {"status":"success","result":6614235796240398542}
+Rust Output: {"result":4952851536318644461,"status":"success"}
+Status: ✅ MATCH
+Difference: hash_comparison
+
+
+Function: isequal_test
+Description: Check if two values are equal
+------------------------------
+Input: {'a': 1, 'b': 1}
+Julia Output: {"status":"success","result":true}
+Rust Output: {"result":true,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+Input: {'a': 1, 'b': 2}
+Julia Output: {"status":"success","result":false}
+Rust Output: {"result":false,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+Input: {'a': 'hello', 'b': 'hello'}
+Julia Output: {"status":"success","result":true}
+Rust Output: {"result":true,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+Input: {'a': 'hello', 'b': 'world'}
+Julia Output: {"status":"success","result":false}
+Rust Output: {"result":false,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+
+Function: isless_test
+Description: Check if first value is less than second
+------------------------------
+Input: {'a': 1, 'b': 2}
+Julia Output: {"status":"success","result":true}
+Rust Output: {"result":true,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+Input: {'a': 2, 'b': 1}
+Julia Output: {"status":"success","result":false}
+Rust Output: {"result":false,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+Input: {'a': 1, 'b': 1}
+Julia Output: {"status":"success","result":false}
+Rust Output: {"result":false,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+
+Function: isnan_test
+Description: Check if value is NaN
+------------------------------
+Input: 1.0
+Julia Output: {"status":"success","result":false}
+Rust Output: {"result":false,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+Input: 0.0
+Julia Output: {"status":"success","result":false}
+Rust Output: {"result":false,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+Input: NaN
+Julia Output: {"status":"success","result":true}
+Rust Output: {"result":true,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+Input: Inf
+Julia Output: {"status":"success","result":false}
+Rust Output: {"result":false,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+
+Function: isinf_test
+Description: Check if value is infinite
+------------------------------
+Input: 1.0
+Julia Output: {"status":"success","result":false}
+Rust Output: {"result":false,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+Input: 0.0
+Julia Output: {"status":"success","result":false}
+Rust Output: {"result":false,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+Input: Inf
+Julia Output: {"status":"success","result":true}
+Rust Output: {"result":true,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+Input: -Inf
+Julia Output: {"status":"success","result":true}
+Rust Output: {"result":true,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+
+Function: isfinite_test
+Description: Check if value is finite
+------------------------------
+Input: 1.0
+Julia Output: {"status":"success","result":true}
+Rust Output: {"result":true,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+Input: 0.0
+Julia Output: {"status":"success","result":true}
+Rust Output: {"result":true,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+Input: Inf
+Julia Output: {"status":"success","result":false}
+Rust Output: {"result":false,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+Input: NaN
+Julia Output: {"status":"success","result":false}
+Rust Output: {"result":false,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+
+Function: round_test
+Description: Round number to nearest integer
+------------------------------
+Input: 3.14
+Julia Output: {"status":"success","result":3.0}
+Rust Output: {"result":3.0,"status":"success"}
+Status: ✅ MATCH
+Difference: 0.0
+
+Input: 2.7
+Julia Output: {"status":"success","result":3.0}
+Rust Output: {"result":3.0,"status":"success"}
+Status: ✅ MATCH
+Difference: 0.0
+
+Input: -1.5
+Julia Output: {"status":"success","result":-2.0}
+Rust Output: {"result":-2.0,"status":"success"}
+Status: ✅ MATCH
+Difference: 0.0
+
+Input: 0.0
+Julia Output: {"status":"success","result":0.0}
+Rust Output: {"result":0.0,"status":"success"}
+Status: ✅ MATCH
+Difference: 0.0
+
+Input: 10.9
+Julia Output: {"status":"success","result":11.0}
+Rust Output: {"result":11.0,"status":"success"}
+Status: ✅ MATCH
+Difference: 0.0
+
+
+Function: floor_test
+Description: Round down to integer
+------------------------------
+Input: 3.14
+Julia Output: {"status":"success","result":3.0}
+Rust Output: {"result":3.0,"status":"success"}
+Status: ✅ MATCH
+Difference: 0.0
+
+Input: 2.7
+Julia Output: {"status":"success","result":2.0}
+Rust Output: {"result":2.0,"status":"success"}
+Status: ✅ MATCH
+Difference: 0.0
+
+Input: -1.5
+Julia Output: {"status":"success","result":-2.0}
+Rust Output: {"result":-2.0,"status":"success"}
+Status: ✅ MATCH
+Difference: 0.0
+
+Input: 0.0
+Julia Output: {"status":"success","result":0.0}
+Rust Output: {"result":0.0,"status":"success"}
+Status: ✅ MATCH
+Difference: 0.0
+
+
+Function: ceil_test
+Description: Round up to integer
+------------------------------
+Input: 3.14
+Julia Output: {"status":"success","result":4.0}
+Rust Output: {"result":4.0,"status":"success"}
+Status: ✅ MATCH
+Difference: 0.0
+
+Input: 2.7
+Julia Output: {"status":"success","result":3.0}
+Rust Output: {"result":3.0,"status":"success"}
+Status: ✅ MATCH
+Difference: 0.0
+
+Input: -1.5
+Julia Output: {"status":"success","result":-1.0}
+Rust Output: {"result":-1.0,"status":"success"}
+Status: ✅ MATCH
+Difference: 0.0
+
+Input: 0.0
+Julia Output: {"status":"success","result":0.0}
+Rust Output: {"result":0.0,"status":"success"}
+Status: ✅ MATCH
+Difference: 0.0
+
+
+Function: trunc_test
+Description: Truncate to integer
+------------------------------
+Input: 3.14
+Julia Output: {"status":"success","result":3.0}
+Rust Output: {"result":3.0,"status":"success"}
+Status: ✅ MATCH
+Difference: 0.0
+
+Input: 2.7
+Julia Output: {"status":"success","result":2.0}
+Rust Output: {"result":2.0,"status":"success"}
+Status: ✅ MATCH
+Difference: 0.0
+
+Input: -1.5
+Julia Output: {"status":"success","result":-1.0}
+Rust Output: {"result":-1.0,"status":"success"}
+Status: ✅ MATCH
+Difference: 0.0
+
+Input: 0.0
+Julia Output: {"status":"success","result":0.0}
+Rust Output: {"result":0.0,"status":"success"}
+Status: ✅ MATCH
+Difference: 0.0
+
+
+Function: abs_test
+Description: Absolute value
+------------------------------
+Input: 3
+Julia Output: {"status":"success","result":3}
+Rust Output: {"result":3,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+Input: -5
+Julia Output: {"status":"success","result":5}
+Rust Output: {"result":5,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+Input: 0
+Julia Output: {"status":"success","result":0}
+Rust Output: {"result":0,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+Input: 2.5
+Julia Output: {"status":"success","result":2.5}
+Rust Output: {"result":2.5,"status":"success"}
+Status: ✅ MATCH
+Difference: 0.0
+
+Input: -1.7
+Julia Output: {"status":"success","result":1.7}
+Rust Output: {"result":1.7,"status":"success"}
+Status: ✅ MATCH
+Difference: 0.0
+
+
+Function: sign_test
+Description: Sign of number
+------------------------------
+Input: 3
+Julia Output: {"status":"success","result":1}
+Rust Output: {"result":1,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+Input: -5
+Julia Output: {"status":"success","result":-1}
+Rust Output: {"result":-1,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+Input: 0
+Julia Output: {"status":"success","result":0}
+Rust Output: {"result":0,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+Input: 2.5
+Julia Output: {"status":"success","result":1.0}
+Rust Output: {"result":1.0,"status":"success"}
+Status: ✅ MATCH
+Difference: 0.0
+
+Input: -1.7
+Julia Output: {"status":"success","result":-1.0}
+Rust Output: {"result":-1.0,"status":"success"}
+Status: ✅ MATCH
+Difference: 0.0
+
+
+Function: sqrt_test
+Description: Square root
+------------------------------
+Input: 4
+Julia Output: {"status":"success","result":2.0}
+Rust Output: {"result":2.0,"status":"success"}
+Status: ✅ MATCH
+Difference: 0.0
+
+Input: 9
+Julia Output: {"status":"success","result":3.0}
+Rust Output: {"result":3.0,"status":"success"}
+Status: ✅ MATCH
+Difference: 0.0
+
+Input: 16
+Julia Output: {"status":"success","result":4.0}
+Rust Output: {"result":4.0,"status":"success"}
+Status: ✅ MATCH
+Difference: 0.0
+
+Input: 2.25
+Julia Output: {"status":"success","result":1.5}
+Rust Output: {"result":1.5,"status":"success"}
+Status: ✅ MATCH
+Difference: 0.0
+
+Input: 0
+Julia Output: {"status":"success","result":0.0}
+Rust Output: {"result":0.0,"status":"success"}
+Status: ✅ MATCH
+Difference: 0.0
+
+
+Function: exp_test
+Description: Exponential function
+------------------------------
+Input: 0
+Julia Output: {"status":"success","result":1.0}
+Rust Output: {"result":1.0,"status":"success"}
+Status: ✅ MATCH
+Difference: 0.0
+
+Input: 1
+Julia Output: {"status":"success","result":2.718281828459045}
+Rust Output: {"result":2.718281828459045,"status":"success"}
+Status: ✅ MATCH
+Difference: 0.0
+
+Input: 2
+Julia Output: {"status":"success","result":7.38905609893065}
+Rust Output: {"result":7.38905609893065,"status":"success"}
+Status: ✅ MATCH
+Difference: 0.0
+
+Input: -1
+Julia Output: {"status":"success","result":0.36787944117144233}
+Rust Output: {"result":0.36787944117144233,"status":"success"}
+Status: ✅ MATCH
+Difference: 0.0
+
+Input: 0.5
+Julia Output: {"status":"success","result":1.6487212707001282}
+Rust Output: {"result":1.6487212707001282,"status":"success"}
+Status: ✅ MATCH
+Difference: 0.0
+
+
+Function: min_test
+Description: Minimum of two values
+------------------------------
+Input: {'a': 3, 'b': 5}
+Julia Output: {"status":"success","result":3}
+Rust Output: {"result":3.0,"status":"success"}
+Status: ✅ MATCH
+Difference: 0.0
+
+Input: {'a': 10, 'b': 2}
+Julia Output: {"status":"success","result":2}
+Rust Output: {"result":2.0,"status":"success"}
+Status: ✅ MATCH
+Difference: 0.0
+
+Input: {'a': -1, 'b': -5}
+Julia Output: {"status":"success","result":-5}
+Rust Output: {"result":-5.0,"status":"success"}
+Status: ✅ MATCH
+Difference: 0.0
+
+
+Function: max_test
+Description: Maximum of two values
+------------------------------
+Input: {'a': 3, 'b': 5}
+Julia Output: {"status":"success","result":5}
+Rust Output: {"result":5.0,"status":"success"}
+Status: ✅ MATCH
+Difference: 0.0
+
+Input: {'a': 10, 'b': 2}
+Julia Output: {"status":"success","result":10}
+Rust Output: {"result":10.0,"status":"success"}
+Status: ✅ MATCH
+Difference: 0.0
+
+Input: {'a': -1, 'b': -5}
+Julia Output: {"status":"success","result":-1}
+Rust Output: {"result":-1.0,"status":"success"}
+Status: ✅ MATCH
+Difference: 0.0
+
+
+==================================================
+SUMMARY
+==================================================
+Total Tests: 71
+Passed: 71
+Failed: 0
+Success Rate: 100.0%
