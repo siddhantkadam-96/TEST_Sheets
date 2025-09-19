@@ -1,0 +1,109 @@
+=== ShimChecker Test Results ===
+Timestamp: 2025-09-19 12:05:57
+==================================================
+
+Function: tryparse_int
+Description: Parse string to Int type, returning nothing/None on failure
+------------------------------
+Input: 123
+Julia Output: {"status":"success","result":123}
+Rust Output: {"result":123,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+Input: abc
+Julia Output: {"status":"success","result":null}
+Rust Output: {"result":null,"status":"success"}
+Status: ✅ MATCH
+
+Input: -456
+Julia Output: {"status":"success","result":-456}
+Rust Output: {"result":-456,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+Input: 0
+Julia Output: {"status":"success","result":0}
+Rust Output: {"result":0,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+Input: 99999
+Julia Output: {"status":"success","result":99999}
+Rust Output: {"result":99999,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+
+Function: tryparse_float
+Description: Parse string to Float type, returning nothing/None on failure
+------------------------------
+Input: 3.14
+Julia Output: {"status":"success","result":3.14}
+Rust Output: {"result":3.14,"status":"success"}
+Status: ✅ MATCH
+Difference: 0.0
+
+Input: invalid
+Julia Output: {"status":"success","result":null}
+Rust Output: {"result":null,"status":"success"}
+Status: ✅ MATCH
+
+Input: -2.5
+Julia Output: {"status":"success","result":-2.5}
+Rust Output: {"result":-2.5,"status":"success"}
+Status: ✅ MATCH
+Difference: 0.0
+
+Input: 0.0
+Julia Output: {"status":"success","result":0.0}
+Rust Output: {"result":0.0,"status":"success"}
+Status: ✅ MATCH
+Difference: 0.0
+
+Input: 1e10
+Julia Output: {"status":"success","result":1.0e10}
+Rust Output: {"result":10000000000.0,"status":"success"}
+Status: ✅ MATCH
+Difference: 0.0
+
+
+Function: something_test
+Description: Return first non-nothing/non-None value from sequence
+------------------------------
+Input: [None, None, 42]
+Julia Output: {"status":"success","result":42}
+Rust Output: {"result":42,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+Input: [None, 'hello', None]
+Julia Output: {"status":"success","result":"hello"}
+Rust Output: {"result":"hello","status":"success"}
+Status: ✅ MATCH
+
+Input: [None, None, None]
+Julia Output: {"status":"success","result":null}
+Rust Output: {"result":null,"status":"success"}
+Status: ✅ MATCH
+
+Input: [1, 2, 3]
+Julia Output: {"status":"success","result":1}
+Rust Output: {"result":1,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+Input: [True, False, None]
+Julia Output: {"status":"success","result":true}
+Rust Output: {"result":true,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+
+==================================================
+SUMMARY
+==================================================
+Total Tests: 15
+Passed: 15
+Failed: 0
+Success Rate: 100.0%
