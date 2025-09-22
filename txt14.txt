@@ -1,0 +1,97 @@
+=== ShimChecker Test Results ===
+Timestamp: 2025-09-22 12:15:16
+==================================================
+
+Function: dataframe_nrow
+Description: Get number of rows in DataFrame
+------------------------------
+Input: {'data': {'name': ['Alice', 'Bob', 'Charlie'], 'age': [25, 30, 35], 'city': ['NY', 'LA', 'SF']}}
+Julia Output: {"status":"success","result":3}
+Rust Output: {"result":3,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+Input: {'data': {'x': [1, 2], 'y': [3, 4]}}
+Julia Output: {"status":"success","result":2}
+Rust Output: {"result":2,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+Input: {'data': {}}
+Julia Output: {"status":"success","result":0}
+Rust Output: {"result":0,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+
+Function: dataframe_ncol
+Description: Get number of columns in DataFrame
+------------------------------
+Input: {'data': {'name': ['Alice', 'Bob', 'Charlie'], 'age': [25, 30, 35], 'city': ['NY', 'LA', 'SF']}}
+Julia Output: {"status":"success","result":3}
+Rust Output: {"result":3,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+Input: {'data': {'x': [1, 2], 'y': [3, 4]}}
+Julia Output: {"status":"success","result":2}
+Rust Output: {"result":2,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+Input: {'data': {}}
+Julia Output: {"status":"success","result":0}
+Rust Output: {"result":0,"status":"success"}
+Status: ✅ MATCH
+Difference: 0
+
+
+Function: dataframe_names
+Description: Get column names of DataFrame
+------------------------------
+Input: {'data': {'name': ['Alice', 'Bob'], 'age': [25, 30], 'city': ['NY', 'LA']}}
+Julia Output: {"status":"success","result":["age","city","name"]}
+Rust Output: {"result":["age","city","name"],"status":"success"}
+Status: ✅ MATCH
+
+Input: {'data': {'x': [1], 'y': [2], 'z': [3]}}
+Julia Output: {"status":"success","result":["x","y","z"]}
+Rust Output: {"result":["x","y","z"],"status":"success"}
+Status: ✅ MATCH
+
+
+Function: dataframe_describe
+Description: Get descriptive statistics of DataFrame
+------------------------------
+Input: {'data': {'age': [25, 30, 35, 40], 'score': [85.5, 92.0, 78.5, 88.0]}}
+Julia Output: {"status":"success","result":{"score":{"max":92.0,"min":78.5,"count":4,"mean":86.0,"std":5.671566509057851},"age":{"max":40,"min":25,"count":4,"mean":32.5,"std":6.454972243679028}}}
+Rust Output: {"result":{"age":{"count":4,"max":40.0,"mean":32.5,"min":25.0,"std":6.454972243679028},"score":{"count":4,"max":92.0,"mean":86.0,"min":78.5,"std":5.671566509057851}},"status":"success"}
+Status: ✅ MATCH
+
+Input: {'data': {'x': [1, 2, 3], 'y': [10, 20, 30]}}
+Julia Output: {"status":"success","result":{"x":{"max":3,"min":1,"count":3,"mean":2.0,"std":1.0},"y":{"max":30,"min":10,"count":3,"mean":20.0,"std":10.0}}}
+Rust Output: {"result":{"x":{"count":3,"max":3.0,"mean":2.0,"min":1.0,"std":1.0},"y":{"count":3,"max":30.0,"mean":20.0,"min":10.0,"std":10.0}},"status":"success"}
+Status: ✅ MATCH
+
+
+Function: dataframe_groupby
+Description: Group DataFrame by column and count
+------------------------------
+Input: {'data': {'category': ['A', 'B', 'A', 'C', 'B'], 'value': [10, 20, 30, 40, 50]}, 'group_column': 'category'}
+Julia Output: {"status":"success","result":{"groups":[{"key":"A","count":2},{"key":"B","count":2},{"key":"C","count":1}]}}
+Rust Output: {"result":{"groups":[{"count":2,"key":"A"},{"count":1,"key":"C"},{"count":2,"key":"B"}]},"status":"success"}
+Status: ✅ MATCH
+
+Input: {'data': {'department': ['Engineering', 'Sales', 'Engineering', 'Marketing'], 'salary': [75000, 60000, 80000, 55000]}, 'group_column': 'department'}
+Julia Output: {"status":"success","result":{"groups":[{"key":"Engineering","count":2},{"key":"Sales","count":1},{"key":"Marketing","count":1}]}}
+Rust Output: {"result":{"groups":[{"count":1,"key":"Sales"},{"count":1,"key":"Marketing"},{"count":2,"key":"Engineering"}]},"status":"success"}
+Status: ✅ MATCH
+
+
+==================================================
+SUMMARY
+==================================================
+Total Tests: 12
+Passed: 12
+Failed: 0
+Success Rate: 100.0%
